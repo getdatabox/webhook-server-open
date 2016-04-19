@@ -1,4 +1,4 @@
-<%= fromUser %> has invited you to edit their website using the Webhook content management system.
+<%= fromUser %> has sido invitado a editar un usando databox.
 
 Website:
 <%= siteUrl %>

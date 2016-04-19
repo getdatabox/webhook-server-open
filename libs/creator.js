@@ -30,7 +30,7 @@ var unescapeSite = function(site) {
  * @param  {Object}   logger     Object to use for logging, defaults to no-ops (deprecated)
  */
 module.exports.start = function (config, logger) {
-  
+
   cloudStorage.setProjectName(config.get('googleProjectId'));
   cloudStorage.setServiceAccount(config.get('googleServiceAccount'));
 
@@ -113,6 +113,7 @@ module.exports.start = function (config, logger) {
     cloudStorage.buckets.create(siteBucket, function(err, body) {
 
       if(err) {
+        console.log('Error cloudStorage.buckets.create'.red);
         callback(err);
         return;
       }
@@ -121,6 +122,7 @@ module.exports.start = function (config, logger) {
       cloudStorage.buckets.updateAcls(siteBucket, function(err, body) {
 
         if(err) {
+          console.log('Error cloudStorage.buckets.updateAcls'.red);
           callback(err);
           return;
         }
@@ -135,6 +137,7 @@ module.exports.start = function (config, logger) {
             'active': true,
             'endTrial' : Date.now()
           }, function(err) {
+            console.log('Error Generate and set the access key'.red);
             callback();
           });
         });
