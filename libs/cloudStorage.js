@@ -80,6 +80,8 @@ function jsonRequest(options, callback)  {
     reqOptions['encoding'] = null;
   }
 
+  console.log('doing call...');
+
   // If the request wants to have a stream back ignore token, the caller is
   // responsible for making sure a token is active
   if(options.stream) {
@@ -108,6 +110,9 @@ function jsonRequest(options, callback)  {
           jsonRequest(options, callback);
         });
       } else {
+        console.log(err);
+        console.log(res);
+        console.log(body);
         callback(res.statusCode, null);
       }
    });
