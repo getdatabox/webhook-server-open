@@ -25,23 +25,23 @@ var extractKey = require('./libs/extractKey.js');
 module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
-    firebase: 'databox',                                             // The name of your firebase
-    firebaseSecret: 'TE4pjri2QI4OhLgmJGsys5O4isSwM4WCNdP6iwJw',                                    // Your firebase's API key
-    mailgunKey: 'key-1f7e5cc6f5be9c9e0a991833b795acdf',                                           // The API key from mailgun
-    fromEmail: 'no-reply@bandoneo.com',                               // Mailgun will send ALL emails for ALL sites from this email address.
-    elasticServer: 'http://5a7642bf17321eb4744e4b7cd2dc0f12.us-east-1.aws.found.io',                               // The address of your elastic server
-    elasticUser: 'readwrite',                                       // The read/write user on your elastic server
-    elasticPassword: '807d4oe91q7552n4t6',                           // The password for your elastic user
+    firebase: 'myfirebase',                                             // The name of your firebase
+    firebaseSecret: 'yoursecretkey',                                    // Your firebase's API key
+    mailgunKey: 'mailgunkey',                                           // The API key from mailgun
+    fromEmail: 'no-reply@customsite.com',                               // Mailgun will send ALL emails for ALL sites from this email address.
+    elasticServer: 'myelasticserver.com',                               // The address of your elastic server
+    elasticUser: 'myelasticuser',                                       // The read/write user on your elastic server
+    elasticPassword: 'myelasticuserpassword',                           // The password for your elastic user
     //elasticOptions: {                                                 // This block is completely optional but useful if you need to specify
     //  port: 9200,                                                     // more elasticsearch options. Possible keys are :
     //  secure: false,                                                  // port, secure, defaultMethod, params, path, timeout, keepAlive and agent
     //  defaultMethod: 'GET'                                            // Uncomment this block and fill in your required values if needed
     //},
-    googleProjectId: 'databox-bandoneo',                                 // Your google project ID. Usually something like whatever-123
-    sitesBucket: 'databox-sites',                             // The name of the build bucket on Google Cloud Storage
-    backupBucket: 'databox-backups',                          // The name of the backup bucket on Google Cloud Storage
-    googleServiceAccount: 'databox-bandoneo@appspot.gserviceaccount.com',  // The email of your projects Service Acccount
-    newrelicEnabled: false,                                           // Set to true to enable NewRelic monitoring (also make sure that a newrelic.js file exists)
+    googleProjectId: 'mygoogleproject',                                 // Your google project ID. Usually something like whatever-123
+    sitesBucket: 'your-company-name-sites',                             // The name of the build bucket on Google Cloud Storage
+    backupBucket: 'your-company-name-backups',                          // The name of the backup bucket on Google Cloud Storage
+    googleServiceAccount: 'long_string@developer.gserviceaccount.com',  // The email of your projects Service Acccount
+    newrelicEnabled: false,                                             // Set to true to enable NewRelic monitoring (also make sure that a newrelic.js file exists)
     memcachedServers: [
       'localhost:11211'
     ],
