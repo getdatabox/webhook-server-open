@@ -19,7 +19,7 @@ var googleServiceAccount = '';
 // Contains google service accounts SSH key
 var keyFile = 'libs/keyfile.key';
 
-/* 
+/*
 * Refreshes the token used to access google cloud storage
 *
 * @param callback Callback to call when refreshed
@@ -37,7 +37,7 @@ var refreshToken = function(callback) {
         oauthToken = token;
 
         callback();
-     });     
+     });
   });
 };
 
@@ -66,7 +66,7 @@ function jsonRequest(options, callback)  {
       index = index + 1;
     });
   }
-  
+
   var reqOptions = {
     url: options.url,
     qs: options.qs || null,
@@ -85,9 +85,12 @@ function jsonRequest(options, callback)  {
   if(options.stream) {
     return request(reqOptions);
   } else {
-    request(reqOptions, 
+    request(reqOptions,
     function(err, res, body){
       if(err) {
+        console.log(err);
+        console.log(res);
+        console.log(body);
         callback(err, null);
       } else if (!res) {
         callback(500, null);
@@ -240,7 +243,7 @@ module.exports.buckets = {
 };
 
 // A collection of all functions related to manipulating objects in cloud storage
-module.exports.objects = { 
+module.exports.objects = {
 
   // List all objects in a bucket (name, md5hash)
   list: function(bucket, callback) {
@@ -312,8 +315,8 @@ module.exports.objects = {
           body: JSON.stringify({
             name: remote,
             cacheControl: cacheControl ? cacheControl : "no-cache"
-          })                  
-      },{ 
+          })
+      },{
           'Content-Type' : overrideMimeType ? overrideMimeType : mime.lookup(local),
           body: fs.readFileSync(local)
       }]
@@ -360,8 +363,8 @@ module.exports.objects = {
               name: remote,
               cacheControl: cacheControl ? cacheControl : "no-cache",
               contentEncoding: 'gzip',
-            })                  
-        },{ 
+            })
+        },{
             'Content-Type' : overrideMimeType ? overrideMimeType : mime.lookup(local),
             body: content
         }]
